@@ -26,7 +26,7 @@ Alternative Playground-Driver for DFRobot-MP3-Player for Tasmota
  short description of the code:
 -  Every 100 ms the driver gets called. If he has a something to execute, he will do this and if not, he will read over serial, if the MP3-Player has something to tell.  
 - Commands are executed as tasks, which can be chained and are stored in a simple array. This contains the task (as uint8_t) and the delay (as uint8_t * 100 ms) in every "slot". So every 100 ms the driver will look, if there is a pending task in a slot, then will execute this task, mark this slot as done and cycle through the slots of the array, until all tasks are done. Between these tasks, it will be returned to the TASMOTA run loop. No delays are used and for instance the player response to a command is read in the next loop. A very long example is the reset routine, which lasts several seconds without blocking TASMOTA.  
-- The Web-GUI asks via AJAX every 100ms, if there is something new and gets back a JSON-arrray with the current state. So it will be also updated, if a MQTT-command is launched or the player stops a song. 
+- The Web-GUI asks via AJAX every 500ms, if there is something new and gets back a JSON-arrray with the current state. So it will be also updated, if a MQTT-command is launched or the player stops a song. 
 
 MQTT-commands:  
 -  The main addition for home automation uses should be the use of audio feedbacks. According to the naming conventions of the player documents this is called MP3ADVERT.  
