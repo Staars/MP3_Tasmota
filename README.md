@@ -19,7 +19,7 @@ Alternative Playground-Driver for DFRobot-MP3-Player for Tasmota
 - It is not known, how many different player types are on the market
 - Development was started on a player, which reported firmware version: 8, but even this might not be enough to diffentiate between the models. There is not one document from the vendors, which really covers all commands and return messages of one player.
 - The player needs enough power and instabilities while developing where mostly related to power supplement. For instance having an Node-MCU on the USB-Port of a Notebook with or without power cord makes a big difference and both variants are bad ideas.
-- The current WebGUI updates via AJAX ten times a second and therefore a stable WIFI is absolutely mandatory.
+- The current WebGUI updates via AJAX two times a second and therefore a stable WIFI is absolutely mandatory.
 - The player firmware offers only very limited functions to read the content of the storage, one example is the automatic folder scan in the Web-GUI. The user must be aware, how he has to create the SD-card or USB-stick 
 
 
