@@ -1,6 +1,9 @@
 # MP3_Tasmota
 Alternative Playground-Driver for DFRobot-MP3-Player for Tasmota
 
+  USAGE:
+  Replace the original TASMOTA driver with the same name, connect the additional wire (compared to the TX-only TASMOTA-solution)    for RX and select GPIO_RXD
+
   project aims:
 - Support complete feature set of the player  
 - Support bidirectional communication, a new pin (MP3 RX) is needed  
@@ -8,7 +11,7 @@ Alternative Playground-Driver for DFRobot-MP3-Player for Tasmota
 - Non-blocking design to keep the main loop of TASMOTA as free as possible  
 - MQTT-interface: mainly geared towards home automation (i.e. direct short audio feedback)  
 - Web-GUI: usable as a music player with state synchronization with the underlying code via AJAX  
-- The main intention is NOT the replacement of the current driver in TASMOTA, but more of a development playground and maybe an alternative for certain use cases. Especially the Web-GUI is quite the contrary to the fundamental design principles of the MQTT-centric TASMOTA
+- The main intention is NOT the replacement of the current driver in TASMOTA, but more of a development playground and maybe an alternative for certain use cases. Especially the Web-GUI is quite the opposite to the fundamental design principles of the MQTT-centric TASMOTA
 
 
 
@@ -26,11 +29,11 @@ Alternative Playground-Driver for DFRobot-MP3-Player for Tasmota
 - The Web-GUI asks via AJAX every 100ms, if there is something new and gets back a JSON-arrray with the current state. So it will be also updated, if a MQTT-command is launched or the player stops a song. 
 
 MQTT-commands:  
--  The main addition for home automation uses should be the use of audio feedbacks. According to the naming conventions og the player documents this is called MP3ADVERT.  
+-  The main addition for home automation uses should be the use of audio feedbacks. According to the naming conventions of the player documents this is called MP3ADVERT.  
 -  The problem is, that these adverts can only be executed, when a music track is currently played. The driver will (hopefully) handle this automatically, but due to the lack of possibilities to read the file structure of the storage device at runtime, it is absolutely neccesary to stick to a strict naming convention:  
     The folder /ADVERT must contain files with the naming scheme 001.mp3, 002.mp3, ... , 999.mp3.  
     The folder /MP3 must contain an exact copy of the content of /ADVERT and will be used as a "backup", if no other mp3 track is running.
-    The command MP3ADVERT 1, will insert the audio track /ADVERT/0001.mp3 into the current track or falls back to /MP3/001.mp3.
+    The command MP3ADVERT 1, will insert the audio track /ADVERT/001.mp3 into the current track or falls back to /MP3/001.mp3.
     
 Web-GUI:
 -  Shows the FW version and (if supported) the date stamp of the player firmware.  
@@ -40,3 +43,4 @@ Web-GUI:
     
     
     
+Thanks to mike2nl for a lot of testing!
