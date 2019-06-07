@@ -28,9 +28,9 @@ Alternative Playground-Driver for DFRobot-MP3-Player for Tasmota
 MQTT-commands:  
 -  The main addition for home automation uses should be the use of audio feedbacks. According to the naming conventions og the player documents this is called MP3ADVERT.  
 -  The problem is, that these adverts can only be executed, when a music track is currently played. The driver will (hopefully) handle this automatically, but due to the lack of possibilities to read the file structure of the storage device at runtime, it is absolutely neccesary to stick to a strict naming convention:  
-    The folder /ADVERT must contain files with the naming scheme 0001.mp3, 0002.mp3, ... , 9999.mp3.  
+    The folder /ADVERT must contain files with the naming scheme 001.mp3, 002.mp3, ... , 999.mp3.  
     The folder /MP3 must contain an exact copy of the content of /ADVERT and will be used as a "backup", if no other mp3 track is running.
-    The command MP3ADVERT 1, will insert the audio track /ADVERT/0001.mp3 into the current track or falls back to /MP3/0001.mp3.
+    The command MP3ADVERT 1, will insert the audio track /ADVERT/0001.mp3 into the current track or falls back to /MP3/001.mp3.
     
 Web-GUI:
 -  Shows the FW version and (if supported) the date stamp of the player firmware.  
